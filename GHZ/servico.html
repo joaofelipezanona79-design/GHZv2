@@ -1,0 +1,420 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Serviços - Prime Obras</title>
+  <style>
+    body {
+      margin: 0;
+      font-family: Arial, sans-serif;
+      color: #333;
+    }
+
+    header {
+      background: #111;
+      color: white;
+      padding: 20px 40px;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+    }
+    .logo {
+      display: flex;
+      align-items: center;
+      gap: 14px;
+    }
+    .logo-mark {
+      width: 52px;
+      height: 52px;
+      background: transparent;
+      border-radius: 14px;
+      overflow: hidden;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      box-shadow: 0 8px 20px rgba(0, 0, 0, 0.25);
+    }
+    .logo-mark img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      display: block;
+    }
+    .logo-text h1 {
+      margin: 0;
+      font-size: 26px;
+      letter-spacing: 1px;
+    }
+    .logo-text p {
+      margin: 2px 0 0;
+      font-size: 13px;
+      color: #ccc;
+      text-transform: uppercase;
+      letter-spacing: 1px;
+    }
+    .logo-link {
+      text-decoration: none;
+      color: inherit;
+    }
+    
+
+    header h1 {
+      margin: 0;
+      font-size: 24px;
+    }
+
+    nav a {
+      color: white;
+      margin-left: 20px;
+      text-decoration: none;
+      font-size: 14px;
+    }
+
+    .section {
+      padding: 60px 40px;
+      text-align: center;
+      max-width: 1140px;
+      margin: 0 auto;
+    }
+
+    .section h2 {
+      font-size: 38px;
+      margin-bottom: 24px;
+      letter-spacing: 0.02em;
+    }
+
+    .section ul,
+    .section ol {
+      display: inline-block;
+      text-align: left;
+      margin: 20px auto;
+      padding-left: 20px;
+      max-width: 600px;
+    }
+
+    .section ul li,
+    .section ol li {
+      margin-bottom: 10px;
+      line-height: 1.6;
+    }
+
+    .form-section {
+      max-width: 600px;
+      margin: 0 auto;
+      text-align: left;
+    }
+
+    .section-card {
+      max-width: 760px;
+      margin: 0 auto;
+      background: #f5f5f5;
+      border-radius: 20px;
+      padding: 40px 30px;
+      box-shadow: 0 15px 40px rgba(0, 0, 0, 0.08);
+    }
+
+    .gallery {
+      display: grid;
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+      gap: 20px;
+      max-width: 100%;
+      margin: 0 auto;
+    }
+
+    .gallery img {
+      width: 100%;
+      aspect-ratio: 4 / 3;
+      object-fit: cover;
+      border: 1px solid #ddd;
+      border-radius: 10px;
+      display: block;
+      box-shadow: 0 12px 30px rgba(0, 0, 0, 0.12);
+      transition: transform 0.3s ease, box-shadow 0.3s ease;
+    }
+
+    .gallery img:hover {
+      transform: translateY(-8px) scale(1.03);
+      box-shadow: 0 22px 40px rgba(0, 0, 0, 0.18);
+    }
+
+    .form-group {
+      margin-bottom: 20px;
+    }
+
+    label {
+      display: block;
+      margin-bottom: 5px;
+      font-weight: bold;
+    }
+
+    input, textarea, select {
+      width: 100%;
+      padding: 10px;
+      border: 1px solid #ddd;
+      border-radius: 5px;
+      font-size: 16px;
+    }
+
+    button {
+      background: #007bff;
+      color: white;
+      padding: 10px 20px;
+      border: none;
+      border-radius: 5px;
+      cursor: pointer;
+      font-size: 16px;
+    }
+
+    button:hover {
+      background: #0056b3;
+    }
+
+    footer {
+      background: #111;
+      color: white;
+      padding: 40px 20px;
+      margin-top: 40px;
+    }
+
+    .footer-inner {
+      max-width: 1140px;
+      margin: 0 auto;
+      display: flex;
+      justify-content: space-between;
+      gap: 30px;
+      flex-wrap: wrap;
+      text-align: left;
+    }
+
+    .footer-column {
+      min-width: 220px;
+      flex: 1 1 220px;
+    }
+
+    .footer-column h4 {
+      margin: 0 0 12px;
+      font-size: 18px;
+      letter-spacing: 0.5px;
+    }
+
+    .footer-column p,
+    .footer-column a,
+    .footer-column li {
+      margin: 0 0 8px;
+      color: #ddd;
+      font-size: 14px;
+      line-height: 1.8;
+    }
+
+    .footer-column a {
+      color: #ddd;
+      text-decoration: none;
+    }
+
+    .footer-column a:hover {
+      color: #fff;
+    }
+
+    .footer-nav {
+      list-style: none;
+      padding: 0;
+      margin: 0;
+    }
+
+    .footer-nav li {
+      margin-bottom: 6px;
+    }
+
+    .footer-bottom {
+      margin-top: 30px;
+      border-top: 1px solid #333;
+      padding-top: 18px;
+      text-align: center;
+      color: #888;
+      font-size: 13px;
+    }
+
+    @media (max-width: 900px) {
+      header {
+        flex-direction: column;
+        align-items: center;
+        gap: 16px;
+        padding: 20px;
+      }
+
+      nav {
+        display: flex;
+        flex-wrap: wrap;
+        justify-content: center;
+        gap: 12px;
+      }
+
+      .section {
+        padding: 40px 20px;
+      }
+
+      .section ul,
+      .section ol {
+        width: 100%;
+        max-width: 100%;
+      }
+
+      .form-section {
+        width: 100%;
+        padding: 0 10px;
+      }
+
+      .gallery {
+        gap: 16px;
+      }
+    }
+
+
+    @media (max-width: 600px) {
+      .section {
+        padding: 32px 16px;
+      }
+
+      .gallery {
+        flex-direction: column;
+        align-items: center;
+      }
+
+      button {
+        width: 100%;
+      }
+    }
+  </style>
+</head>
+<body>
+
+<header>
+  <a href="index.html" class="logo-link">
+    <div class="logo">
+      <div class="logo-mark">
+        <img src="assetsGHZ/img/F2857E0C-B366-4B8D-90A9-8C9E81C5C245.png" alt="Logo Prime Obras">
+      </div>
+      <div class="logo-text">
+        <h1>Prime Obras</h1>
+        <p>Construção de alto padrão</p>
+      </div>
+    </div>
+  </a>
+  <nav>
+    <a href="index.html">Início</a>
+    <a href="imoveis.html">Imóveis</a>
+    <a href="servico.html">Serviços</a>
+    <a href="contato.html">Contato</a>
+  </nav>
+</header>
+
+<section class="section">
+  <h2>Contrate Nossos Serviços</h2>
+  <p>Na Prime Obras, oferecemos serviços completos de construção e planejamento de imóveis. Desde o projeto inicial até a entrega final, cuidamos de cada etapa com dedicação e expertise. Cobramos por metro quadrado pronto, garantindo transparência e qualidade em cada projeto.</p>
+  <p><strong>Preço base: R$ 1.500 por m²</strong> (inclui materiais e mão de obra). O valor final pode variar dependendo da complexidade, localização e materiais escolhidos.</p>
+  <p>Nossos serviços incluem:</p>
+  <ul>
+    <li>Planejamento arquitetônico personalizado</li>
+    <li>Construção residencial e comercial</li>
+    <li>Reformas e ampliações</li>
+    <li>Instalações elétricas e hidráulicas</li>
+    <li>Acabamentos de alta qualidade</li>
+  </ul>
+  <p>Trabalhamos com materiais de primeira linha e equipe qualificada para garantir que seu imóvel seja construído com excelência e dentro do prazo.</p>
+</section>
+
+<section class="section">
+  <h2>Galeria de Projetos</h2>
+  <div class="gallery">
+    <img src="assetsGHZ/img/dc756c73a83a8d684124c7e462b7e56b.jpg" alt="Projeto Residencial">
+    <img src="assetsGHZ/img/01-FACHADA-PROJETO-EA-183-3-quartos-768x512-1.jpg" alt="Obra em Andamento">
+    <img src="assetsGHZ/img/prancha-modelo-projeto-1-scaled.jpg" alt="Obra em Andamento">
+    <img src="assetsGHZ/img/dc68ef1d818fcbafaa6ac94ad8ad9a6a.jpg" alt="Obra em Andamento">
+  </div>
+</section>
+
+<section class="section">
+  <h2>Nosso Processo de Trabalho</h2>
+  <ol>
+    <li>Consulta inicial e avaliação das necessidades</li>
+    <li>Elaboração do projeto e orçamento detalhado</li>
+    <li>Aprovação e contratação</li>
+    <li>Execução da obra com acompanhamento</li>
+    <li>Entrega final e garantia</li>
+  </ol>
+</section>
+
+<section class="section">
+  <div class="section-card">
+    <h2>Solicite um Orçamento</h2>
+    <div class="form-section">
+      <form action="solicitacao-enviada.html" method="get">
+      <div class="form-group">
+        <label for="nome">Nome Completo:</label>
+        <input type="text" id="nome" name="nome" required>
+      </div>
+      <div class="form-group">
+        <label for="email">E-mail:</label>
+        <input type="email" id="email" name="email" required>
+      </div>
+      <div class="form-group">
+        <label for="telefone">Telefone:</label>
+        <input type="tel" id="telefone" name="telefone" required>
+      </div>
+      <div class="form-group">
+        <label for="tipo">Tipo de Imóvel:</label>
+        <select id="tipo" name="tipo" required>
+          <option value="">Selecione</option>
+          <option value="casa">Casa</option>
+          <option value="sobrado">Sobrado</option>
+          <option value="apartamento">Apartamento</option>
+          <option value="outro">Outro</option>
+        </select>
+      </div>
+      <div class="form-group">
+        <label for="area">Área Estimada (m²):</label>
+        <input type="number" id="area" name="area" min="1" required>
+      </div>
+      <div class="form-group">
+        <label for="descricao">Descrição do Projeto:</label>
+        <textarea id="descricao" name="descricao" rows="5" placeholder="Descreva seu projeto, necessidades especiais, etc."></textarea>
+      </div>
+      <button type="submit">Enviar Solicitação</button>
+    </form>
+  </div>
+</section>
+
+<footer>
+  <div class="footer-inner">
+    <div class="footer-column">
+      <h4>Prime Obras</h4>
+      <p>Construção de alto padrão com foco em qualidade, segurança e entrega no prazo.</p>
+      <p>Endereço: Rua Pau Morto, 67 - Auropolis - PR</p>
+      <p>CNPJ: 11.726.236/0001-26</p>
+    </div>
+    <div class="footer-column">
+      <h4>Contato</h4>
+      <p>Email: contato@primeobras.com.br</p>
+      <p>Telefone: 9762-1467</p>
+      <p>WhatsApp: (42) 96967-0777</p>
+      <p>Atendimento: Seg a Sex, 8h às 18h</p>
+    </div>
+    <div class="footer-column">
+      <h4>Links Rápidos</h4>
+      <ul class="footer-nav">
+        <li><a href="index.html">Início</a></li>
+        <li><a href="imoveis.html">Imóveis</a></li>
+        <li><a href="servico.html">Serviços</a></li>
+        <li><a href="contato.html">Contato</a></li>
+      </ul>
+    </div>
+  </div>
+  <div class="footer-bottom">
+    <p>© 2026 Prime Obras. Todos os direitos reservados.</p>
+    <p>Desenvolvido para oferecer confiança e transparência em cada projeto.</p>
+  </div>
+</footer>
+
+</body>
+</html>
