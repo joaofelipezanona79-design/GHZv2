@@ -1,0 +1,433 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Imóveis para Venda - Prime Obras</title>
+  <style>
+    body {
+      margin: 0;
+      font-family: Arial, sans-serif;
+      color: #333;
+    }
+
+    header {
+      background: #111;
+      color: white;
+      padding: 20px 40px;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+    }
+    .logo {
+      display: flex;
+      align-items: center;
+      gap: 14px;
+    }
+    .logo-mark {
+      width: 52px;
+      height: 52px;
+      background: transparent;
+      border-radius: 14px;
+      overflow: hidden;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      box-shadow: 0 8px 20px rgba(0, 0, 0, 0.25);
+    }
+    .logo-mark img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      display: block;
+    }
+    .logo-text h1 {
+      margin: 0;
+      font-size: 26px;
+      letter-spacing: 1px;
+    }
+    .logo-text p {
+      margin: 2px 0 0;
+      font-size: 13px;
+      color: #ccc;
+      text-transform: uppercase;
+      letter-spacing: 1px;
+    }
+    .logo-link {
+      text-decoration: none;
+      color: inherit;
+    }
+    
+    header h1 {
+      margin: 0;
+      font-size: 24px;
+    }
+
+    nav a {
+      color: white;
+      margin-left: 20px;
+      text-decoration: none;
+      font-size: 14px;
+    }
+
+    .section {
+      padding: 60px 40px;
+      text-align: center;
+      max-width: 1140px;
+      margin: 0 auto;
+    }
+
+    .section h2 {
+      font-size: 38px;
+      margin-bottom: 24px;
+      letter-spacing: 0.02em;
+    }
+
+    .properties {
+      display: grid;
+      grid-template-columns: repeat(3, minmax(280px, 1fr));
+      gap: 50px;
+      justify-items: center;
+      max-width: 1040px;
+      margin: 0 auto;
+    }
+
+    .property-card {
+      width: 100%;
+      max-width: 320px;
+      padding: 20px;
+      border: 1px solid #ddd;
+      border-radius: 10px;
+      text-align: left;
+    }
+
+
+    .property-card img {
+      width: 100%;
+      height: 200px;
+      object-fit: cover;
+      border-radius: 5px;
+    }
+
+    .property-card h3 {
+      margin-top: 10px;
+      font-size: 20px;
+    }
+
+    .property-card p {
+      margin: 5px 0;
+    }
+
+    .price {
+      font-weight: bold;
+      color: #007bff;
+    }
+
+    footer {
+      background: #111;
+      color: white;
+      padding: 40px 20px;
+      margin-top: 40px;
+    }
+
+    .footer-inner {
+      max-width: 1140px;
+      margin: 0 auto;
+      display: flex;
+      justify-content: space-between;
+      gap: 30px;
+      flex-wrap: wrap;
+      text-align: left;
+    }
+
+    .footer-column {
+      min-width: 220px;
+      flex: 1 1 220px;
+    }
+
+    .footer-column h4 {
+      margin: 0 0 12px;
+      font-size: 18px;
+      letter-spacing: 0.5px;
+    }
+
+    .footer-column p,
+    .footer-column a,
+    .footer-column li {
+      margin: 0 0 8px;
+      color: #ddd;
+      font-size: 14px;
+      line-height: 1.8;
+    }
+
+    .footer-column a {
+      color: #ddd;
+      text-decoration: none;
+    }
+
+    .footer-column a:hover {
+      color: #fff;
+    }
+
+    .footer-nav {
+      list-style: none;
+      padding: 0;
+      margin: 0;
+    }
+
+    .footer-nav li {
+      margin-bottom: 6px;
+    }
+
+    .footer-bottom {
+      margin-top: 30px;
+      border-top: 1px solid #333;
+      padding-top: 18px;
+      text-align: center;
+      color: #888;
+      font-size: 13px;
+    }
+
+    .tracking-in-contract-bck-top {
+	        -webkit-animation: tracking-in-contract-bck-top 1s cubic-bezier(0.215, 0.610, 0.355, 1.000) both;
+	        animation: tracking-in-contract-bck-top 1s cubic-bezier(0.215, 0.610, 0.355, 1.000) both;
+    }
+
+  @-webkit-keyframes tracking-in-contract-bck-top {
+      0% {
+        letter-spacing: 1em;
+        -webkit-transform: translateZ(400px) translateY(-300px);
+                transform: translateZ(400px) translateY(-300px);
+        opacity: 0;
+      }
+      40% {
+        opacity: 0.6;
+      }
+      100% {
+        -webkit-transform: translateZ(0) translateY(0);
+                transform: translateZ(0) translateY(0);
+        opacity: 1;
+      }
+  }
+  @keyframes tracking-in-contract-bck-top {
+      0% {
+        letter-spacing: 1em;
+        -webkit-transform: translateZ(400px) translateY(-300px);
+                transform: translateZ(400px) translateY(-300px);
+        opacity: 0;
+      }
+      40% {
+        opacity: 0.6;
+      }
+      100% {
+        -webkit-transform: translateZ(0) translateY(0);
+                transform: translateZ(0) translateY(0);
+        opacity: 1;
+      }
+  }
+
+
+    @media (max-width: 1100px) {
+      .properties {
+        grid-template-columns: repeat(2, minmax(280px, 1fr));
+      }
+    }
+
+    @media (max-width: 768px) {
+      header {
+        flex-direction: column;
+        align-items: center;
+        gap: 16px;
+        padding: 20px;
+      }
+
+      nav {
+        display: flex;
+        flex-wrap: wrap;
+        justify-content: center;
+        gap: 12px;
+      }
+
+      .section {
+        padding: 40px 20px;
+      }
+
+      .properties {
+        grid-template-columns: 1fr;
+      }
+    }
+
+    @media (max-width: 600px) {
+      .section {
+        padding: 32px 16px;
+      }
+
+      .property-card {
+        padding: 16px;
+      }
+    }
+  </style>
+</head>
+<body>
+
+<header>
+  <a href="ghz.html" class="logo-link">
+    <div class="logo">
+      <div class="logo-mark">
+        <img src="assetsGHZ/img/F2857E0C-B366-4B8D-90A9-8C9E81C5C245.png" alt="Logo Prime Obras">
+      </div>
+      <div class="logo-text">
+        <h1>Prime Obras</h1>
+        <p>Construção de alto padrão</p>
+      </div>
+    </div>
+  </a>
+  <nav>
+    <a href="ghz.html">Início</a>
+    <a href="imoveis.html">Imóveis</a>
+    <a href="servico.html">Serviços</a>
+    <a href="contato.html">Contato</a>
+  </nav>
+</header>
+
+<section class="section tracking-in-contract-bck-top">
+  <h2>Catálogo de Imóveis para Venda</h2>
+  <p>Explore nossa seleção de imóveis disponíveis, incluindo casas, sobrados e apartamentos. </br> Aqui você não tem nenhuma burocracia com imobiliárias ou vendedores, compre nossos imóveis diretos conosco. </br> Todas as propriedades completamente novas, aqui você não compra um imóvel, você realiza um sonho.</p>
+
+</section>
+
+<section class="section" style="background:#f5f5f5;">
+  <h2>Casas</h2>
+  <div class="properties">
+    <div class="property-card">
+      <img src="https://images.unsplash.com/photo-1564013799919-ab600027ffc6" alt="Casa Moderna">
+      <h3>Casa Moderna com Piscina</h3>
+      <p>Localização: São Pedro</p>
+      <p>Área: 150m² | Quartos: 3 | Banheiros: 2</p>
+      <p class="price">R$ 650.000</p>
+    </div>
+    <div class="property-card">
+      <img src="https://images.unsplash.com/photo-1570129477492-45c003edd2be" alt="Casa Familiar">
+      <h3>Casa Familiar Grande</h3>
+      <p>Localização: Cidade Nova</p>
+      <p>Área: 200m² | Quartos: 4 | Banheiros: 3</p>
+      <p class="price">R$ 800.000</p>
+    </div>
+    <div class="property-card">
+      <img src="assetsGHZ/img/176478978669308e1a262d0_1764789786_3x2_rt.jpg" alt="Casa de Luxo Prime">
+      <h3>Ilha do Epstein</h3>
+      <p>Localização: Little Saint James</p>
+      <p>Área: 820m² | Suíte Master | Piscina | Jardim Paisagístico</p>
+      <p class="price">R$ 67.420.069</p>
+    </div>
+    <div class="property-card">
+      <img src="https://images.unsplash.com/photo-1600585154340-be6161a56a0c" alt="Casa Aconchegante">
+      <h3>Casa Aconchegante</h3>
+      <p>Localização: Limeira</p>
+      <p>Área: 230m² | Quartos: 2 | Banheiros: 1</p>
+      <p class="price">R$ 950.000</p>
+    </div>
+    <div class="property-card">
+      <img src="assetsGHZ/img/265734257 (1).jpg" alt="Casa Campestre">
+      <h3>Casa Campestre com Terreno</h3>
+      <p>Localização: Rio Vermelho</p>
+      <p>Área: 250m² | Quartos: 4 | Banheiros: 2 | Pomar</p>
+      <p class="price">R$ 1.550.000</p>
+    </div>
+    <div class="property-card">
+      <img src="assetsGHZ/img/hq720.jpg" alt="Casa Contemporânea">
+      <h3>Casa Contemporânea Minimalista</h3>
+      <p>Localização: Rua Luís Chacaroski, 63</p>
+      <p>Área: 160m² | Quartos: 3 | Banheiros: 2 | Garagem</p>
+      <p class="price">R$ 520.000</p>
+    </div>
+  </div>
+</section>
+
+<section class="section">
+  <h2>Sobrados</h2>
+  <div class="properties">
+    <div class="property-card">
+      <img src="https://images.unsplash.com/photo-1600596542815-ffad4c1539a9" alt="Sobrado Contemporâneo">
+      <h3>Sobrado Contemporâneo</h3>
+      <p>Localização: Panorama</p>
+      <p>Área: 180m² | Quartos: 3 | Banheiros: 2 | Garagem: 2 vagas</p>
+      <p class="price">R$ 690.000</p>
+    </div>
+    <div class="property-card">
+      <img src="https://images.unsplash.com/photo-1512917774080-9991f1c4c750" alt="Sobrado com Vista">
+      <h3>Sobrado Moderno</h3>
+      <p>Localização: Morro do Cristo</p>
+      <p>Área: 220m² | Quartos: 4 | Banheiros: 3 | Garagem: 3 vagas</p>
+      <p class="price">R$ 750.000</p>
+    </div>
+    <div class="property-card">
+      <img src="assetsGHZ/img/EYEG0oaWoAIOzBe.jpg" alt="Sobrado com Vista">
+      <h3>Casa Automática</h3>
+      <p>Localização: [x:-350, y:180, z:1300]</p>
+      <p>Área: 480m² | Quartos: 6 | Banheiros: 3 | Garagem: 4 vagas</p>
+      <p class="price">R$ 3.950.000</p>
+    </div>
+  </div>
+</section>
+
+<section class="section" style="background:#f5f5f5;">
+  <h2>Apartamentos</h2>
+  <div class="properties">
+    <div class="property-card">
+      <img src="https://images.unsplash.com/photo-1545324418-cc1a3fa10c00" alt="Apartamento Compacto">
+      <h3>Apartamento Compacto</h3>
+      <p>Localização: Centro</p>
+      <p>Área: 70m² | Quartos: 2 | Banheiros: 1 | Sacada</p>
+      <p class="price">R$ 310.000</p>
+    </div>
+    <div class="property-card">
+      <img src="https://images.unsplash.com/photo-1522708323590-d24dbb6b0267" alt="Apartamento Luxuoso">
+      <h3>Apartamento Luxuoso</h3>
+      <p>Localização: Balneário Camboriú</p>
+      <p>Área: 120m² | Quartos: 3 | Banheiros: 2 | Varanda Gourmet</p>
+      <p class="price">R$ 800.000</p>
+    </div>
+    <div class="property-card">
+      <img src="assetsGHZ/img/4lgs7ja2n2flm2iwzwqyotk3_sm.jpg" alt="Apartamento com Vista">
+      <h3>Apartamento com Vista Panorâmica</h3>
+      <p>Localização: Bombinhas</p>
+      <p>Área: 95m² | Quartos: 2 | Banheiros: 2 | Sacada</p>
+      <p class="price">R$ 460.000</p>
+    </div>
+  </div>
+</section>
+
+<footer>
+  <div class="footer-inner">
+    <div class="footer-column">
+      <h4>Prime Obras</h4>
+      <p>Construção de alto padrão com foco em qualidade, segurança e entrega no prazo.</p>
+      <p>Endereço: Rua Pau Morto, 67 - Auropolis - PR</p>
+      <p>CNPJ: 11.726.236/0001-26</p>
+    </div>
+    <div class="footer-column">
+      <h4>Contato</h4>
+      <p>Email: contato@primeobras.com.br</p>
+      <p>Telefone: 9762-1467</p>
+      <p>WhatsApp: (42) 96967-0777</p>
+      <p>Atendimento: Seg a Sex, 8h às 18h</p>
+    </div>
+    <div class="footer-column">
+      <h4>Links Rápidos</h4>
+      <ul class="footer-nav">
+        <li><a href="ghz.html">Início</a></li>
+        <li><a href="imoveis.html">Imóveis</a></li>
+        <li><a href="servico.html">Serviços</a></li>
+        <li><a href="contato.html">Contato</a></li>
+      </ul>
+    </div>
+  </div>
+  <div class="footer-bottom">
+    <p>© 2026 Prime Obras. Todos os direitos reservados.</p>
+    <p>Desenvolvido para oferecer confiança e transparência em cada projeto.</p>
+  </div>
+</footer>
+
+</body>
+</html>
